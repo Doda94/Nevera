@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.doda.nevera.databinding.FragmentHomeBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
@@ -22,6 +25,20 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ApiModule.initRetrofitVrijeme()
+        ApiModule.retrofitVrijeme.getVrijemeHrvatska().enqueue(object : Callback<HrvatskaResponse> {
+            override fun onResponse(call: Call<HrvatskaResponse>, response: Response<HrvatskaResponse>) {
+                if (response.isSuccessful) {
+                    val vrijemeHrvatska = response.body()
+
+                }
+            }
+
+            override fun onFailure(call: Call<HrvatskaResponse>, t: Throwable) {
+
+            }
+        })
 
     }
 
