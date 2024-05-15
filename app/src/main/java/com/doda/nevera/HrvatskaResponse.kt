@@ -1,11 +1,11 @@
 package com.doda.nevera
 
-import java.io.Serial
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import org.simpleframework.xml.Element
+import org.simpleframework.xml.ElementList
+import org.simpleframework.xml.Root
 
-@Serializable
+@Root(name = "Hrvatska", strict = false)
 data class HrvatskaResponse(
-    @SerialName("DatumTermin") val datum: DatumTermin,
-    @SerialName("Grad") val gradovi: List<Grad>,
+    @field:Element(name = "DatumTermin", required = false) var datumTermin: DatumTermin = DatumTermin("", 0),
+    @field:ElementList(name = "Grad", required = false, inline = true) var gradovi: List<Grad> = ArrayList(),
 )

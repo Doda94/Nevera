@@ -2,15 +2,17 @@ package com.doda.nevera
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.simpleframework.xml.Element
+import org.simpleframework.xml.Root
 
-@Serializable
+@Root(name = "Podatci", strict = false)
 data class Podatci(
-    @SerialName("Vlaga") val vlaga: Double,
-    @SerialName("Temp") val temp: Double,
-    @SerialName("Tlak") val tlak: Double,
-    @SerialName("TlakTend") val tlakTend: Double,
-    @SerialName("VjetarSmjer") val vjetarSmjer: String,
-    @SerialName("VjetarBrzina") val vjetarBrzina: Double,
-    @SerialName("Vrijeme") val vrijeme: String,
-    @SerialName("VrijemeZnak") val vrijemeZnak: Int,
+    @field:Element(name = "Vlaga") var vlaga: String = "",
+    @field:Element(name = "Temp") var temp: String = "",
+    @field:Element(name = "Tlak") var tlak: String = "",
+    @field:Element(name = "TlakTend") var tlakTend: String = "",
+    @field:Element(name = "VjetarSmjer") var vjetarSmjer: String = "",
+    @field:Element(name = "VjetarBrzina") var vjetarBrzina: String = "",
+    @field:Element(name = "Vrijeme") var vrijeme: String = "",
+    @field:Element(name = "VrijemeZnak") var vrijemeZnak: String = "",
 )

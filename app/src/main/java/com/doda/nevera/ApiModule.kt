@@ -6,6 +6,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 
 object ApiModule {
     // Define your base URLs
@@ -23,7 +24,8 @@ object ApiModule {
 
         retrofitVrijeme = Retrofit.Builder()
             .baseUrl(BASE_URL_1)
-            .addConverterFactory(Json { ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(SimpleXmlConverterFactory.create())
+//            .addConverterFactory(Json { ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaType()))
             .client(okhttp)
             .build()
             .create(VrijemeApiService::class.java)

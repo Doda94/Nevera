@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface VrijemeApiService {
 
-    @GET("hrvatska_n")
+    @GET("hrvatska_n.xml")
     fun getVrijemeHrvatska(): Call<HrvatskaResponse>
 }
