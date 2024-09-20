@@ -1,7 +1,5 @@
-package com.doda.nevera
+package com.doda.nevera.data
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 

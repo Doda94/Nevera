@@ -1,4 +1,4 @@
-package com.doda.nevera
+package com.doda.nevera.api
 
 import retrofit2.Call
 import retrofit2.http.GET

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.doda.nevera.HomeFragment"
+        android:name="com.doda.nevera.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home"/>
 </navigation>

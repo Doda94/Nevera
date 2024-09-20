@@ -1,10 +1,12 @@
-package com.doda.nevera
+package com.doda.nevera.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.doda.nevera.ApiModule
+import com.doda.nevera.api.HrvatskaResponse
 import com.doda.nevera.databinding.FragmentHomeBinding
 import retrofit2.Call
 import retrofit2.Callback
