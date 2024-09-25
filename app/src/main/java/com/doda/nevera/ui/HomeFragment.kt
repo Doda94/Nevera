@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
 
         ApiModule.initRetrofitVrijeme()
 
-        val city: Cities = Cities(
+        val city = Cities(
             id = 1, name = "Zagreb", lat = 45.815399,
             lon = 15.966568, currentTemp = 0.0, hourlyForecast = Forecast(
                 date = "danas lal", sat = 0, temp = 0, simbol = "5"

@@ -33,14 +33,14 @@ class HomeViewModel @Inject constructor(
         return _cities.value
     }
 
-    fun insertCity(city: Cities){
+    fun insertCity(city: Cities) {
         viewModelScope.launch(Dispatchers.IO) {
             weatherRepository.insertCity(city)
             _cities.postValue(getAllCities()) // Use postValue for background threads
         }
     }
 
-    suspend private fun getAllCities(): List<Cities> {
+    private suspend fun getAllCities(): List<Cities> {
         return weatherRepository.getAllCities()
     }
 

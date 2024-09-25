@@ -12,4 +12,4 @@ data class Cities(
     val lon: Double,
     val currentTemp: Double,
     val hourlyForecast: Forecast,
-    )
+)

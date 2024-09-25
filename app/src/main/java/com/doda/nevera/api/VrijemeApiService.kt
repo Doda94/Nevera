@@ -11,5 +11,4 @@ interface VrijemeApiService {
     @GET("europa_n.xml")
     fun getVrijemeEuropa(): Call<HrvatskaResponse>
 
-
 }

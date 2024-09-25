@@ -23,7 +23,7 @@ object ApiModule {
         retrofitVrijeme = Retrofit.Builder()
             .baseUrl(BASE_URL_1)
             .addConverterFactory(SimpleXmlConverterFactory.create())
-//            .addConverterFactory(Json { ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaType()))
+            //            .addConverterFactory(Json { ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaType()))
             .client(okhttp)
             .build()
             .create(VrijemeApiService::class.java)
