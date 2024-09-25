@@ -5,17 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.doda.nevera.ApiModule
-import com.doda.nevera.api.HrvatskaResponse
+import com.doda.nevera.data.Forecast
 import com.doda.nevera.databinding.FragmentHomeBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.doda.nevera.db.Cities
+import com.doda.nevera.viewModels.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,18 +33,17 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         ApiModule.initRetrofitVrijeme()
-        ApiModule.retrofitVrijeme.getVrijemeHrvatska().enqueue(object : Callback<HrvatskaResponse> {
-            override fun onResponse(call: Call<HrvatskaResponse>, response: Response<HrvatskaResponse>) {
-                if (response.isSuccessful) {
-                    val vrijemeHrvatska = response.body()
 
-                }
-            }
+        val city: Cities = Cities(
+            id = 1, name = "Zagreb", lat = 45.815399,
+            lon = 15.966568, currentTemp = 0.0, hourlyForecast = Forecast(
+                date = "danas lal", sat = 0, temp = 0, simbol = "5"
+            )
+        )
 
-            override fun onFailure(call: Call<HrvatskaResponse>, t: Throwable) {
+        viewModel.insertCity(city)
 
-            }
-        })
+        val gradovi: List<Cities>? = viewModel.getCities()
 
     }
 
