@@ -14,4 +14,7 @@ interface WeatherDAO {
     @Query("SELECT * FROM cities")
     suspend fun getAllCities(): List<Cities>
 
+    @Query("DELETE FROM cities")
+    suspend fun clearAllTables()
+
 }

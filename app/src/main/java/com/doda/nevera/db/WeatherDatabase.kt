@@ -17,15 +17,4 @@ abstract class WeatherDatabase : RoomDatabase() {
 
     abstract fun getWeatherDAO(): WeatherDAO
 
-    override fun clearAllTables() {
-        TODO("Not yet implemented")
-    }
-
-    override fun createInvalidationTracker(): InvalidationTracker {
-        TODO("Not yet implemented")
-    }
-
-    override fun createOpenHelper(config: DatabaseConfiguration): SupportSQLiteOpenHelper {
-        TODO("Not yet implemented")
-    }
 }
